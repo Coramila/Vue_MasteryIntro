@@ -1,8 +1,22 @@
 const app = Vue.createApp({
   data() {
     return {
-      product: "Socks",
-      image: "./assets/images/socks_green.jpg",
+      cart: [],
+      premium: true,
     };
+  },
+  methods: {
+    updateCart(id) {
+      this.cart.push(id);
+    },
+
+    removeCart(id) {
+      if (this.cart.length > 0) {
+        const index = this.cart.indexOf(id);
+        //if (index > -1) {
+        this.cart.splice(index, 1);
+        // }
+      }
+    },
   },
 });
